@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/min/style.min.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a0a804109e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <p>DCSTATS</p>
+        </div>
+
+        <div class="search-bar">
+            <form action="">
+                <input type="text" name="username" id="username" placeholder="Search for user" required>
+                <button type="submit" id="search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+    <section id="main">
+        <div class="headline-container">
+            <h1>Ranking</h1>
+            <h2>There are <span id="counter" class="counter">0</span> user in the database</h2>
+        </div>
+
+
+        {% for user in list %}
+        <div class="user">
+            <div class="avatar-container">
+                <img class="avatar" id="avatar" src="http://placehold.it/1000x1000" alt="Avatar">
+            </div>
+            <div class="user-container">
+                <p id="username" class="username">{{ user[1] }}<span id="tag" class="tag">#8668</span></p>
+                <div class="stats">
+                    <div class="box">
+                        <p class="title">Level <span class="value" id="value">{{ user[3] }}</span></p>
+                    </div>
+                    <div class="box">
+                        <p class="title">EXP <span class="value" id="value">{{ user[4] }}/5500</span></p>
+                    </div>
+                    <div class="box">
+                        <p class="title">Ranking <span class="value" id="value">#3</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+</body>
+</html>
