@@ -1,8 +1,11 @@
 // Import
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+$font: 'Roboto', sans-serif;
+
 // Color Palette
 $accent: #7289da;
+$accent-darker: #687ece;
 $white: #ffffff;
 $second: #99aab5;
 $dark: #23272a;
@@ -17,7 +20,7 @@ $light: #2c2f33;
 body {
     background-color: $dark;
     color: $white;
-    font-family: 'Roboto', sans-serif;
+    font-family: $font;
 
     section {
         min-height: 100vh;
@@ -26,7 +29,7 @@ body {
 
 header {
     width: 100%;
-    height: 4em;
+    height: 6em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,10 +38,21 @@ header {
     background-color: $dark;
 
     .logo {
-        p {
-            font-size: 2rem;
-            font-weight: 800;
-            text-transform: uppercase;
+        transition: all 200ms;
+
+        a {
+            text-decoration: none;
+            color: $white;
+
+            p {
+                font-size: 2rem;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+        }
+
+        &:hover {
+            opacity: 0.8;
         }
     }
 
@@ -46,22 +60,38 @@ header {
         form {
             input {
                 width: 12em;
-                height: 2em;
+                height: 3em;
                 padding: 1em;
                 border: none;
                 border-radius: 10px;
                 background-color: $light;
                 color: $white;
+                font-family: $font;
+
+                &:focus {
+                    outline: 2px solid $accent;
+                }
             }
 
             button {
                 width: 4em;
-                height: 2em;
+                height: 3em;
                 border: none;
                 border-radius: 10px;
                 background-color: $accent;
                 color: $white;
                 font-weight: 500;
+
+                transition: all 200ms;
+
+                &:hover {
+                    background-color: $accent-darker;
+                }
+
+                &:focus {
+                    outline: none;
+                    background-color: $accent-darker;
+                }
             }
         }
     } 
@@ -80,12 +110,12 @@ header {
         padding: 10em 0 5em 0;
 
         h1 {
-            font-size: 4em;
+            font-size: 4rem;
             text-transform: uppercase;
         }
     
         h2 {
-            font-size: 1.5em;
+            font-size: 1.5rem;
             color: $second;
             text-transform: uppercase;
     
@@ -112,11 +142,17 @@ header {
                 width: 80px;
                 height: 80px;
                 border-radius: 50%;
+
+                transition: all 200ms;
+
+                &:hover {
+                    transform: scale(0.94);
+                }
             }
         }
 
         .user-container {
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: column;
 
@@ -131,6 +167,7 @@ header {
             }
 
             .stats {
+                width: 100%;
                 display: flex;
                 margin-top: 0.4em;
 
@@ -148,6 +185,50 @@ header {
                             font-weight: 500;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #main {
+        .user {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+            margin: 1em 0;
+        }
+    }
+
+    #main {
+
+        .headline-container {
+            h1 {
+                font-size: 3rem;
+            }
+        
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+        .user {
+            width: 80%;
+
+            .avatar-container {
+                .avatar {
+                    width: 64px;
+                    height: 64px;
                 }
             }
         }

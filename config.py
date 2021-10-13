@@ -1,4 +1,5 @@
+# MySQL Database
 host = "localhost"
 user = "root"
 password = ""
-database = "polybot"
+database = "dcstats"

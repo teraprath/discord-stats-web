@@ -12,11 +12,11 @@
 <body>
     <header>
         <div class="logo">
-            <p>DCSTATS</p>
+            <a href="{{ url_for('index') }}"><p>DCSTATS</p></a>
         </div>
 
         <div class="search-bar">
-            <form action="">
+            <form method="post">
                 <input type="text" name="username" id="username" placeholder="Search for user" required>
                 <button type="submit" id="search"><i class="fas fa-search"></i></button>
             </form>
@@ -25,31 +25,38 @@
     <section id="main">
         <div class="headline-container">
             <h1>Ranking</h1>
-            <h2>There are <span id="counter" class="counter">0</span> user in the database</h2>
+            <h2>There are <span class="counter">{{ counter }}</span> user in the database</h2>
         </div>
 
-
+        {% set count = namespace(value=0) %}
+        {% if list == [] %}
+            <p>No results for "{{ username }}".</p>
+        {% else %}
         {% for user in list %}
+        {% set count.value = count.value + 1 %}
         <div class="user">
             <div class="avatar-container">
-                <img class="avatar" id="avatar" src="http://placehold.it/1000x1000" alt="Avatar">
+                <img class="avatar" id="avatar" src="{{ user[7] }}" alt="Avatar">
             </div>
             <div class="user-container">
-                <p id="username" class="username">{{ user[1] }}<span id="tag" class="tag">#8668</span></p>
+                <p id="username" class="username">{{ user[2] }}<span id="tag" class="tag">#{{ user[3] }}</span></p>
                 <div class="stats">
                     <div class="box">
-                        <p class="title">Level <span class="value" id="value">{{ user[3] }}</span></p>
+                        <p class="title">Level <span class="value" id="value">{{ user[4] }}</span></p>
                     </div>
                     <div class="box">
-                        <p class="title">EXP <span class="value" id="value">{{ user[4] }}/5500</span></p>
+                        <p class="title">EXP <span class="value" id="value">{{ user[5] }}/{{ user[6] }}</span></p>
                     </div>
+                    {% if rank %}
                     <div class="box">
-                        <p class="title">Ranking <span class="value" id="value">#3</span></p>
+                        <p class="title">Ranking <span class="value" id="value">#{{ count.value }}</span></p>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% endfor %}
+        {% endif %}
     </section>
 
 </body>
