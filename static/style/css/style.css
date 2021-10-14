@@ -223,6 +223,25 @@ header .search-bar form button:focus {
   font-weight: 500;
 }
 
+footer {
+  margin-top: 5em;
+  padding: 2em 0;
+  background-color: #1e2124;
+  text-align: center;
+  color: #99aab5;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #99aab5;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
+footer p a:hover {
+  color: white;
+}
+
 @media (max-width: 1200px) {
   #main .user {
     width: 60%;

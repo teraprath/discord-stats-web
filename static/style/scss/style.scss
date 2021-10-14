@@ -9,6 +9,7 @@ $accent-darker: #687ece;
 $white: #ffffff;
 $second: #99aab5;
 $dark: #23272a;
+$darker:#1e2124;
 $light: #2c2f33;
 
 * {
@@ -194,6 +195,27 @@ header {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+footer {
+    margin-top: 5em;
+    padding: 2em 0;
+    background-color: $darker;
+    text-align: center;
+    color: $second;
+
+    p {
+        a {
+            text-decoration: none;
+            color: $second;
+
+            transition: all 200ms;
+
+            &:hover {
+                color: white;
             }
         }
     }
