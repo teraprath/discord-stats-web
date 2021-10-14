@@ -21,17 +21,3 @@ def list_with(username):
     cursor.execute(f"SELECT * FROM user WHERE username LIKE '%{username}%'")
     res = cursor.fetchall()
     return res
-
-async def check(username):
-    cursor.execute(f"SELECT * FROM user WHERE username LIKE '%{username}%'")
-    result = cursor.fetchone()
-    if result is None:
-        return False
-    else:
-        return True
-
-def getData(username):
-    cursor = mydb.cursor(buffered=True)
-    cursor.execute(f"SELECT * FROM user WHERE username LIKE '%{username}%'")
-    res = cursor.fetchone()
-    return res

@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def index():
     list = db.list()
-    list.sort(reverse=True, key=lambda list: list[4])
+    list.sort(reverse=False, key=lambda list: list[7])
     counter = len(list)
     rank = True
     username = None
@@ -22,7 +22,7 @@ def index():
         else:
             list = []
 
-    return render_template("index.html", list=list, counter=counter, rank=rank, username=username)
+    return render_template("index.html", list=list, counter=counter, username=username)
 
 if __name__ == "__main__":
     app.run(port=5500, debug=True)

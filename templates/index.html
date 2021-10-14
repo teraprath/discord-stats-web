@@ -1,3 +1,6 @@
+<!--
+    Made by https://github.com/teraprath
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord Stats</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/min/style.min.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a0a804109e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="{{ url_for('index') }}"><p>DCSTATS</p></a>
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Logo">
+                <p>DCSTATS</p>
+            </a>
         </div>
 
         <div class="search-bar">
@@ -28,15 +33,13 @@
             <h2>There are <span class="counter">{{ counter }}</span> user in the database</h2>
         </div>
 
-        {% set count = namespace(value=0) %}
         {% if list == [] %}
             <p>No results for "{{ username }}".</p>
         {% else %}
         {% for user in list %}
-        {% set count.value = count.value + 1 %}
         <div class="user">
             <div class="avatar-container">
-                <img class="avatar" id="avatar" src="{{ user[7] }}" alt="Avatar">
+                <img class="avatar" id="avatar" src="{{ user[8] }}" alt="Avatar">
             </div>
             <div class="user-container">
                 <p id="username" class="username">{{ user[2] }}<span id="tag" class="tag">#{{ user[3] }}</span></p>
@@ -47,11 +50,9 @@
                     <div class="box">
                         <p class="title">EXP <span class="value" id="value">{{ user[5] }}/{{ user[6] }}</span></p>
                     </div>
-                    {% if rank %}
                     <div class="box">
-                        <p class="title">Ranking <span class="value" id="value">#{{ count.value }}</span></p>
+                        <p class="title">Ranking <span class="value" id="value">#{{ user[7] }}</span></p>
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>

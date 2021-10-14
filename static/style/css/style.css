@@ -41,6 +41,18 @@ header .logo {
 header .logo a {
   text-decoration: none;
   color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .logo a img {
+  width: 60px;
+  width: 60px;
+  margin-right: 0.2em;
 }
 
 header .logo a p {

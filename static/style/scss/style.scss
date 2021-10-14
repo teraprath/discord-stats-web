@@ -43,6 +43,14 @@ header {
         a {
             text-decoration: none;
             color: $white;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 60px;
+                width: 60px;
+                margin-right: 0.2em;
+            }
 
             p {
                 font-size: 2rem;
